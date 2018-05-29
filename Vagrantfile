@@ -19,6 +19,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	end
 
 	shared_dir = "/vagrant"
+	cdm_url = ""
+	cdm_port = ""
+
+	if !File.exists?(".vagrant/machines/default/virtualbox/action_provision")
+		puts "Thank you for checking out Hyku with the CdmMigrator tool"
+		puts ""
+		puts "CdmMigrator Setup"
+		print "ContentDM API Base URL: "
+		cdm_url = STDIN.gets.chomp
+
+		print "ContentDM API Port: "
+		cdm_port = STDIN.gets.chomp
+	end
 
 	config.vm.provision "shell", path: "./install_scripts/bootstrap.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/dnsmasq.sh", args: shared_dir
@@ -28,6 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.provision "shell", path: "./install_scripts/ruby.sh", privileged: false, args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/passenger.sh", privileged: false, args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/fits.sh", args: shared_dir
-	config.vm.provision "shell", path: "./install_scripts/hyku.sh", privileged: false, args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/hyku.sh", privileged: false, args: [shared_dir, cdm_url, cdm_port]
+	config.vm.provision "shell", inline: "echo Finished, enjoy migrating"
 
 end

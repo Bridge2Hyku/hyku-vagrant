@@ -5,6 +5,8 @@
 echo "Installing Hyku"
 
 SHARED_DIR=$1
+CDM_URL=${2%/}
+CDM_PORT=$3
 
 if [ -f "$SHARED_DIR/install_scripts/config" ]; then
   . $SHARED_DIR/install_scripts/config
@@ -23,11 +25,17 @@ sudo -u postgres psql -c "CREATE USER ubuntu WITH PASSWORD 'ubuntu' CREATEDB;"
 . /etc/default/hyku
 
 cd /var/www/hyku
+
+echo "gem 'cdm_migrator'" >> /var/www/hyku/Gemfile
+
 gem install bundler -q
 bundle install
 
 bundle exec rake assets:precompile
 bundle exec rake db:setup
+rails g cdm_migrator:install
+
+echo -en "cdm_url: '$CDM_URL'\ncdm_port: $CDM_PORT\n" > /var/www/hyku/config/cdm_migrator.yml
 
 sudo service apache2 restart
 
