@@ -5,8 +5,9 @@
 echo "Installing Hyku"
 
 SHARED_DIR=$1
-CDM_URL=${2%/}
+CDM_HOST=$2
 CDM_PORT=$3
+CDM_SSL=$4
 
 if [ -f "$SHARED_DIR/install_scripts/config" ]; then
   . $SHARED_DIR/install_scripts/config
@@ -34,6 +35,15 @@ bundle install
 bundle exec rake assets:precompile
 bundle exec rake db:setup
 rails g cdm_migrator:install
+
+CDM_SSL=$(echo "$CDM_SSL" | awk '{print tolower($0)}')
+echo "SSL: $CDM_SSL"
+if [ "$CDM_SSL" == "y" ] || [ "$CDM_SSL" == "yes" ] || [ "$CMD_SSL" == "true" ]; then
+  CDM_PROTOCOL="https"
+else
+  CDM_PROTOCOL="http"
+fi
+CDM_URL="$CDM_PROTOCOL://$CDM_HOST"
 
 echo -en "cdm_url: '$CDM_URL'\ncdm_port: $CDM_PORT\n" > /var/www/hyku/config/cdm_migrator.yml
 
