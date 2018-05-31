@@ -65,20 +65,6 @@ To stop vagrant run `vagrant halt`. To remove hyku vagrant and the virtual machi
   * [Tomcat 7](http://tomcat.apache.org)
   * [Zookeeper](https://zookeeper.apache.org/)
 
-## Windows Troubleshooting
-
-If you receive errors involving `\r` (end of line):
-
-Edit the global `.gitconfig` file, find the line:
-```
-autocrlf = true
-```
-and change it to
-```
-autocrlf = false
-```
-Remove and clone again. This will prevent windows git clients from automatically replacing unix line endings LF with windows line endings CRLF.
-
 ## Maintainers
 
 Current maintainers:

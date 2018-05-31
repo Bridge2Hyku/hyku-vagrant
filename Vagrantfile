@@ -38,15 +38,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 		cdm_ssl = STDIN.gets.chomp
 	end
 
-	config.vm.provision "shell", binary: true, path: "./install_scripts/bootstrap.sh", args: shared_dir
-	config.vm.provision "shell", binary: true, path: "./install_scripts/dnsmasq.sh", args: shared_dir
-	config.vm.provision "shell", binary: true, path: "./install_scripts/env-vars.sh", args: shared_dir
-	config.vm.provision "shell", binary: true, path: "./install_scripts/fedora4.sh", args: shared_dir
-	config.vm.provision "shell", binary: true, path: "./install_scripts/solr.sh", args: shared_dir
-	config.vm.provision "shell", binary: true, path: "./install_scripts/ruby.sh", privileged: false, args: shared_dir
-	config.vm.provision "shell", binary: true, path: "./install_scripts/passenger.sh", privileged: false, args: shared_dir
-	config.vm.provision "shell", binary: true, path: "./install_scripts/fits.sh", args: shared_dir
-	config.vm.provision "shell", binary: true, path: "./install_scripts/hyku.sh", privileged: false, args: [shared_dir, cdm_host, cdm_port, cdm_ssl]
+	config.vm.provision "shell", path: "./install_scripts/bootstrap.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/dnsmasq.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/env-vars.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/fedora4.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/solr.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/ruby.sh", privileged: false, args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/passenger.sh", privileged: false, args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/fits.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/hyku.sh", privileged: false, args: [shared_dir, cdm_host, cdm_port, cdm_ssl]
 	config.vm.provision "shell", inline: "echo Finished, enjoy migrating"
 
 end
