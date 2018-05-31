@@ -6,10 +6,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-	config.ssh.username = "ubuntu"
 	config.vm.hostname = "hyku"
 
 	config.vm.box = "ubuntu/xenial64"
+	config.vm.box_version = "20180529.0.0"
 
 	config.vm.network :forwarded_port, guest: 80, host: 8080 # Hyku
 	config.vm.network :forwarded_port, guest: 8983, host: 8983 # Solr

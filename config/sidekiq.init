@@ -10,7 +10,7 @@
 ### END INIT INFO
 
 RAILS_ROOT="/var/www/hyku"
-USER="ubuntu"
+USER="vagrant"
 
 [ -f /etc/default/hyku ] && . /etc/default/hyku
 

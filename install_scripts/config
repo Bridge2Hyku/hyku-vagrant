@@ -3,7 +3,7 @@
 # Contain Environment variables for installs
 #
 
-HOME_DIR="/home/ubuntu"
+HOME_DIR="/home/vagrant"
 
 SHARED_DIR="/vagrant"
 
