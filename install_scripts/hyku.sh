@@ -37,7 +37,6 @@ bundle exec rake db:setup
 rails g cdm_migrator:install
 
 CDM_SSL=$(echo "$CDM_SSL" | awk '{print tolower($0)}')
-echo "SSL: $CDM_SSL"
 if [ "$CDM_SSL" == "y" ] || [ "$CDM_SSL" == "yes" ] || [ "$CMD_SSL" == "true" ]; then
   CDM_PROTOCOL="https"
 else
