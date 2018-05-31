@@ -3,8 +3,10 @@
 
 ## Requirements
 
-* [Vagrant](https://www.vagrantup.com/)
-* [VirtualBox](https://www.virtualbox.org/)
+* [Vagrant 2.1.x](https://www.vagrantup.com/)
+* [VirtualBox 5.2.x](https://www.virtualbox.org/)
+
+Windows users will need Powershell version 3 or higher
 
 ## Install
 
