@@ -67,6 +67,30 @@ To stop vagrant run `vagrant halt`. To remove hyku vagrant and the virtual machi
   * [Tomcat 7](http://tomcat.apache.org)
   * [Zookeeper](https://zookeeper.apache.org/)
 
+## Enable Sidekiq
+
+If you need to view the status of jobs follow these steps to enable the Sidekiq interface:
+
+1. `cd hyku-vagrant`, or wherever your hyku-vagrant is
+2. `vagrant ssh`
+3. `node /var/www/hyku/config/routes.rb`
+4. Add the following lines to Line #2
+```
+require 'sidekiq/web'
+mount Sidekiq::Web => '/sidekiq'
+```
+It should look something like this:
+```
+Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+ 
+  if Settings.multitenancy.enabled
+```
+5. Hit `Ctrl-X` and then `y` to save changes and exit
+6. `sudo service apache2 restart`
+7. Visit [http://example.localhost:8080/sidekiq](http://example.localhost:8080/sidekiq)
+
 ## Maintainers
 
 Current maintainers:
