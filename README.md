@@ -73,7 +73,7 @@ If you need to view the status of jobs follow these steps to enable the Sidekiq 
 
 1. `cd hyku-vagrant`, or wherever your hyku-vagrant is
 2. `vagrant ssh`
-3. `node /var/www/hyku/config/routes.rb`
+3. `nano /var/www/hyku/config/routes.rb`
 4. Add the following lines to Line #2
 ```
 require 'sidekiq/web'
