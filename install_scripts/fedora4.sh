@@ -23,6 +23,7 @@ cp -f $DOWNLOAD_DIR/fcrepo-webapp-4.7.1.war /var/lib/tomcat7/webapps/fedora4.war
 cp -f $SHARED_DIR/config/server.xml /etc/tomcat7/server.xml
 cp -f $SHARED_DIR/config/tomcat-users.xml /etc/tomcat7/tomcat-users.xml
 
+sed -i -e 's/-Xmx128m/-Xmx1024m/g' /etc/default/tomcat7
 echo "JAVA_OPTS=\"\${JAVA_OPTS} -Dfcrepo.modeshape.configuration=classpath:/config/file-simple/repository.json -Dfcrepo.home=/var/hyku/fedora/\"" >> /etc/default/tomcat7
 
 service tomcat7 restart
