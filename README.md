@@ -10,7 +10,7 @@ Windows users will need Powershell version 3 or higher
 
 ## Install
 
-1. `git clone https://github.com/seanlw/hyku-vagrant.git`
+1. `git clone https://github.com/Bridge2Hyku/hyku-vagrant.git`
 2. `cd hyku-vagrant`
 3. `vagrant up`
 4. Input ContentDM information during install
