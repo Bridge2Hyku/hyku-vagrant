@@ -27,7 +27,7 @@ sudo -u postgres psql -c "CREATE USER vagrant WITH PASSWORD 'vagrant' CREATEDB;"
 
 cd /var/www/hyku
 
-echo "gem 'cdm_migrator'" >> /var/www/hyku/Gemfile
+echo "gem 'cdm_migrator', git: 'https://github.com/Bridge2Hyku/cdm_migrator'" >> /var/www/hyku/Gemfile
 
 gem install bundler -q
 bundle install
