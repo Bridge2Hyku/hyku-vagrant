@@ -46,6 +46,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.provision "shell", path: "./install_scripts/ruby.sh", privileged: false, args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/passenger.sh", privileged: false, args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/fits.sh", args: shared_dir
+	config.vm.provision "shell", path: "./install_scripts/imagemagick.sh", args: shared_dir
 	config.vm.provision "shell", path: "./install_scripts/hyku.sh", privileged: false, args: [shared_dir, cdm_host, cdm_port, cdm_ssl]
 	config.vm.provision "shell", inline: "echo Finished, enjoy migrating"
 
