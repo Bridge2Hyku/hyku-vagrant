@@ -5,8 +5,11 @@
 
 * [Vagrant 2.1.x](https://www.vagrantup.com/)
 * [VirtualBox 5.2.x](https://www.virtualbox.org/)
+* [Chrome](https://www.google.com/chrome/)
 
 Windows users will need Powershell version 3 or higher
+
+The Chrome browser is required because of its support for subdomains on localhost `*.localhost` which Hyku Vagrant uses for repositories. Alternatively you can edit your `hosts` file and add  `127.0.0.1` to any `*.localhost` domain.
 
 ## Install
 
