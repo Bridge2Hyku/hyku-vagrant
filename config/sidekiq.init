@@ -17,7 +17,7 @@ USER="vagrant"
 case "$1" in
   start)
   echo -n "Starting Sidekiq: "
-  su - $USER -c "cd $RAILS_ROOT && DISABLE_REDIS_CLUSTER=true bundle exec sidekiq &" >> $RAILS_ROOT/log/sidekiq.log 2>&1
+  su - $USER -c "cd $RAILS_ROOT && DISABLE_REDIS_CLUSTER=true bundle exec sidekiq -q default &" >> $RAILS_ROOT/log/sidekiq.log 2>&1
   echo "done."
   ;;
   stop)
