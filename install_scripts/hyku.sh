@@ -44,7 +44,10 @@ else
 fi
 CDM_URL="$CDM_PROTOCOL://$CDM_HOST"
 
-echo -en "cdm_url: '$CDM_URL'\ncdm_port: $CDM_PORT\n" > /var/www/hyku/config/cdm_migrator.yml
+sed -i -e "s|http:\/\/your-content-dm-host|${CDM_URL}|g" /var/www/hyku/config/cdm_migrator.yml
+sed -i -e "s|8080|${CDM_PORT}|g" /var/www/hyku/config/cdm_migrator.yml
+sed -i -e 's/front/server/g' /var/www/hyku/config/cdm_migrator.yml
+
 echo -en "\nactive_job:\n  queue_adapter: :sidekiq\n" >> /var/www/hyku/config/settings/production.yml
 
 sudo service apache2 restart
