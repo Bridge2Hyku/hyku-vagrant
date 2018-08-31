@@ -21,6 +21,10 @@ git clone https://github.com/samvera-labs/hyku.git
 mv $HOME_DIR/hyku/* /var/www/hyku
 rm -Rf $HOME_DIR/hyku
 
+sudo mkdir -p /var/cdm/dir1
+sudo mkdir -p /var/cdm/dir2
+sudo chown -R vagrant: /var/cdm
+
 sudo -u postgres psql -c "CREATE USER vagrant WITH PASSWORD 'vagrant' CREATEDB;"
 
 . /etc/default/hyku
@@ -46,6 +50,8 @@ CDM_URL="$CDM_PROTOCOL://$CDM_HOST"
 
 sed -i -e "s|http:\/\/your-content-dm-host|${CDM_URL}|g" /var/www/hyku/config/cdm_migrator.yml
 sed -i -e "s|8080|${CDM_PORT}|g" /var/www/hyku/config/cdm_migrator.yml
+sed -i -e "s|/dir1/path/goes/here|/var/cdm/dir1|g" /var/www/hyku/config/cdm_migrator.yml
+sed -i -e "s|/dir2/path/goes/here|/var/cdm/dir2|g" /var/www/hyku/config/cdm_migrator.yml
 sed -i -e 's/front/server/g' /var/www/hyku/config/cdm_migrator.yml
 
 echo -en "\nactive_job:\n  queue_adapter: :sidekiq\n" >> /var/www/hyku/config/settings/production.yml
