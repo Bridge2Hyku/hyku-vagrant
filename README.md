@@ -6,6 +6,8 @@
 * [Vagrant 2.1.x](https://www.vagrantup.com/)
 * [VirtualBox 5.2.x](https://www.virtualbox.org/)
 * [Chrome](https://www.google.com/chrome/)
+* Core i5/Ryzen 5 or higher
+* 8GB RAM or higher
 
 Windows users will need Powershell version 3 or higher
 
