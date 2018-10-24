@@ -13,6 +13,8 @@ Windows users will need Powershell version 3 or higher
 
 The Chrome browser is required because of its support for subdomains on localhost `*.localhost` which Hyku Vagrant uses for repositories. Alternatively you can edit your `hosts` file and add  `127.0.0.1` to any `*.localhost` domain.
 
+Please note that the Hyrax stack can be resource-intensive and is not recommended for underpowered computers or on machines you intend to multi-task heavily with during your hyku testing. 
+
 ## Install
 
 1. `git clone https://github.com/Bridge2Hyku/hyku-vagrant.git`
