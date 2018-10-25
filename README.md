@@ -62,13 +62,13 @@ To stop vagrant run `vagrant halt`. To remove hyku vagrant and the virtual machi
 
 * Ubuntu 16.04 64-bit machine with:
   * [Apache](https://httpd.apache.org/)
-  * [CdmMigrator](https://github.com/UVicLibrary/cdm_migrator)
+  * [CdmMigrator](https://github.com/Bridge2Hyku/cdm_migrator)
   * [Fedora 4.x](http://fedora.info/about) at [http://localhost:8984/fedora4/rest](http://localhost:8984/fedora4/rest)
   * [Hyku](https://github.com/samvera-labs/hyku) at
   [http://localhost:8080](http://localhost:8080)
-  * [ImageMagick 6.9.10-11](https://www.imagemagick.org/script/index.php)
+  * [ImageMagick](https://www.imagemagick.org/script/index.php)
   * [Passenger 5.1.4](https://www.phusionpassenger.com/)
-  * [Ruby 2.3.1](https://www.ruby-lang.org/)
+  * [Ruby 2.4.4](https://www.ruby-lang.org/)
   * [Solr 6.4.2](http://lucene.apache.org/solr/) at [http://localhost:8983/solr/](http://localhost:8983/solr/)
   * [Tomcat 7](http://tomcat.apache.org)
   * [Zookeeper](https://zookeeper.apache.org/)
